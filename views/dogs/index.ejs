@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') -%> <% for(let dog of allDogs) { %>
+<div class="container-fluid my-3">
+  <h1>All Dogs:</h1>
+  <div class="card">
+    <div class="card-body">
+      <img class="img-fluid" src="<%= dog.photo %> " alt="dog-photo" />
+      <h2><%= dog.breedName %></h2>
+      <h3>Qualities:</h3>
+      <ul>
+        <% for(let item of dog.temperament) { %>
+        <li><%=item %></li>
+        <% } %>
+      </ul>
+      <p>Lifespan: <%= dog.lifespan %></p>
+      <a class="btn btn-primary" href="/dogs/<%=dog._id%>">view</a>
+    </div>
+  </div>
+
+  <hr />
+  <% } %>
+  <a class="btn btn-primary" href="/dogs/new">new dog</a>
+</div>

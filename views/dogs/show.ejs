@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') -%>
+<div class="card-body">
+  <img class="img-fluid" src="<%= dog.photo %> " alt="dog-photo" />
+  <h2><%= dog.breedName %></h2>
+  <h3>Qualities:</h3>
+  <ul>
+    <% for(let item of dog.temperament) { %>
+    <li><%=item %></li>
+    <% } %>
+  </ul>
+  <p>Lifespan: <%= dog.lifespan %></p>
+  <form action="/dogs/<%=dog._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button>
+  </form>
+</div>
+<div class="card-body">
+  <form class="form-control" action="/dogs/<%=dog._id%>/comments" method="POST">
+    <div>
+      <label class="form-label" for="body">Comment:</label>
+      <input class="form-control" type="text" name="comment[body]" id="body" />
+    </div>
+    <div>
+      <label class="form-label" for="username">Username:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="comment[username]"
+        id="username"
+      />
+    </div>
+    <button class="btn btn-success mt-3">Submit</button>
+  </form>
+  <div class="card">
+    <div class="card-body">
+      <% for(let comment of dog.comments) { %>
+      <h3><%= comment.username %> says:</h3>
+      <p><%= comment.body %></p>
+      <% } %>
+    </div>
+  </div>
+</div>

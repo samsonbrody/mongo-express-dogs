@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container-fluid">
+  <h1>New Dog</h1>
+  <div class="card">
+    <div class="card-body">
+      <form class="form-control" action="/dogs" method="POST">
+        <div>
+          <label class="form-label" for="breedName">Breed Name:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="breedName"
+            name="dog[breedName]"
+          />
+        </div>
+        <div>
+          <label class="form-label" for="lifespan">Lifespan:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="lifespan"
+            name="dog[lifespan]"
+          />
+        </div>
+        <div>
+          <label class="form-label" for="hypoallergenic">Hypoallergenic</label>
+          <input
+            class="form-control"
+            type="text"
+            id="hypoallergenic"
+            name="dog[hypoallergenic]"
+          />
+        </div>
+        <div>
+          <label class="form-label" for="phot">Photo URL:</label>
+          <input
+            class="form-control"
+            type="text"
+            id="hypoallergenic"
+            name="dog[photo]"
+          />
+        </div>
+        <button class="btn btn-success mt-2">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
